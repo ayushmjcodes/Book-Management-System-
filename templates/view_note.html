@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Note - NotesApp</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-note-id="{{ note_id }}">
+  {% include "partials/header.html" %}
+
+  <main class="container narrow">
+    <div class="view-note-toolbar">
+      <button id="pinBtn" class="btn btn-outline">📌 Pin</button>
+      <button id="favBtn" class="btn btn-outline">⭐ Favorite</button>
+      <a id="editLink" href="#" class="btn btn-outline">✏️ Edit</a>
+      <button id="deleteBtn" class="btn btn-danger">🗑 Delete</button>
+    </div>
+
+    <h1 id="noteTitle"></h1>
+    <p id="noteMeta" class="note-meta"></p>
+    <div id="noteContent" class="note-content"></div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/view_note.js') }}"></script>
+</body>
+</html>

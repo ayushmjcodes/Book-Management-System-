@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - NotesApp</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  {% include "partials/header.html" %}
+
+  <main class="container">
+    <div class="toolbar">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search notes by title or content...">
+      <select id="categoryFilter" class="select-input">
+        <option value="">All Categories</option>
+      </select>
+      <button id="favoriteFilterBtn" class="btn btn-outline" data-active="false">⭐ Favorites</button>
+      <button id="addCategoryBtn" class="btn btn-outline">+ Category</button>
+    </div>
+
+    <div id="notesGrid" class="notes-grid"></div>
+
+    <p id="emptyState" class="empty-state hidden">
+      No notes found. <a href="/notes/create">Create your first note</a>.
+    </p>
+  </main>
+
+  <div id="categoryModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>New Category</h3>
+      <input type="text" id="newCategoryName" placeholder="Category name" maxlength="50">
+      <div class="modal-actions">
+        <button id="cancelCategoryBtn" class="btn btn-outline">Cancel</button>
+        <button id="saveCategoryBtn" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Note - NotesApp</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-note-id="{{ note_id }}">
+  {% include "partials/header.html" %}
+
+  <main class="container narrow">
+    <h2>Edit Note</h2>
+
+    <div id="formMessage" class="form-message hidden"></div>
+
+    <form id="noteForm" novalidate>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required maxlength="200" placeholder="Note title">
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category_id">
+          <option value="">No category</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea id="content" name="content" rows="10" placeholder="Write your note here..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" id="deleteBtn" class="btn btn-danger">Delete</button>
+        <a href="/dashboard" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Note</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/note_form.js') }}"></script>
+</body>
+</html>
